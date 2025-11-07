@@ -11,12 +11,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      usuario_id: {
+      usuarioId: {
         field:"usuario_id",
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      rol_id: {
+      rolId: {
         field:"rol_id",
         allowNull: false,
         type: Sequelize.INTEGER

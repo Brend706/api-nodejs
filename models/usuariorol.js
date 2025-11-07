@@ -1,4 +1,5 @@
 'use strict';
+
 const {
   Model
 } = require('sequelize');
@@ -12,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
 
     static associate(models) {
       // relacion con la tabla Usuario 
-      /*UsuarioRol.belongsTo(models.Usuario, {
+      Usuario.belongsToMany(models.Usuario, {
         through: models.UsuarioRol, //llama a la tabla intermedia 
         foreignKey: 'usuario_id',
         onDelete: 'CASCADE', //se elimina si se elimina el usuario
@@ -20,12 +21,12 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       // relacion con la tabla Rol
-      UsuarioRol.belongsTo(models.Rol, { 
+      Rol.belongsToMany(models.Rol, { 
         through: models.UsuarioRol, //llama a la tabla intermedia
         foreignKey: 'rol_id',
         onDelete: 'CASCADE', //se elimina si se elimina el rol
         onUpdate: 'CASCADE' //se actualiza si se actualiza el rol
-      });*/
+      });
     }
   }
   UsuarioRol.init({
@@ -58,8 +59,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    timestamps: true,
+    timestamps: true, //
     modelName: 'UsuarioRol',
+    name: { 
+      singular: 'UsuarioRol', 
+      plural: 'UsuariosRoles' },
     tableName: 'usuarios_roles'
   });
   return UsuarioRol;
