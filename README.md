@@ -1,1 +1,1 @@
-# API-REST-NodeJs2025
+# API-REST con Node.js y Sequelize
